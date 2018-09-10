@@ -3,6 +3,11 @@ using NUnit.Framework;
 
 namespace KataTest.StringCalculator
 {
+
+    /// <summary>
+    /// Here is the Article for this Kata
+    /// http://osherove.com/tdd-kata-1/
+    /// </summary>
     [TestFixture]
     public class StringCalculatorTest
     {
