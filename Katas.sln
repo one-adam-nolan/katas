@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreetingKata", "GreetingKata\GreetingKata.csproj", "{CA5A112C-2F33-477C-8CA1-031FABE2F2CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katas", "GreetingKata\Katas.csproj", "{CA5A112C-2F33-477C-8CA1-031FABE2F2CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreetingKataTests", "GreetingKataTests\GreetingKataTests.csproj", "{E9B4C6EE-8CE0-46B6-8E71-EE0ED84DB4C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataTest", "GreetingKataTests\KataTest.csproj", "{E9B4C6EE-8CE0-46B6-8E71-EE0ED84DB4C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
