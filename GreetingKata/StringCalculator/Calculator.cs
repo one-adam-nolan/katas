@@ -1,6 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
 
 namespace Katas.StringCalculator
 {
@@ -11,32 +13,32 @@ namespace Katas.StringCalculator
             return SumAll(Break(numbers)).ToString();
         }
 
-        private long GetNumberFromString(string number) => int.TryParse(number, out var result) ? result : 0;
 
         private string[] Break(string numbers)
         {
-            var defaultSplit = numbers.Split(';');
-            var filter = new List<string>();
-            foreach (var item in defaultSplit)
-            {
-                filter.AddRange(item.Split(',', '\n'));
-            }
-
-            return filter.ToArray();
+            var outterSplit = BreakOnSemiColon(numbers);
+            return outterSplit.SelectMany(BreakOnCommaAndNewLine).ToArray();
         }
 
+        private string[] BreakOnSemiColon(string numbers) => numbers.Split(';');
+        private string[] BreakOnCommaAndNewLine(string numbers) => numbers.Split(',', '\n');
+        private string[] BreakOnSemiColon(string[] numbersSet) => numbersSet.SelectMany(s => s.Split(',', '\n')).ToArray();
+        private long GetNumberFromString(string number) => int.TryParse(number, out var result) ? result : 0;
 
+        private void CheckForNegativeNumbers(IEnumerable<long> numbers)
+        {
+            var negatives = numbers.Where(num => num < 0);
 
+            if (negatives.Any())
+                throw new Exception($"Negative Numbers not Allowed! {string.Join(' ', negatives)}");
+        }
 
         private long SumAll(string[] numbers)
         {
-            long sum = 0;
+            var convertedNumbers = numbers.Select(GetNumberFromString);
+            CheckForNegativeNumbers(convertedNumbers);
 
-            foreach (var number in numbers)
-            {
-                sum += GetNumberFromString(number);
-            }
-            return sum;
+            return convertedNumbers.Sum();
         }
 
 

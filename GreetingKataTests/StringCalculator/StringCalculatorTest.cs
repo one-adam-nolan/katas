@@ -1,4 +1,5 @@
-﻿using Katas.StringCalculator;
+﻿using System;
+using Katas.StringCalculator;
 using NUnit.Framework;
 
 namespace KataTest.StringCalculator
@@ -51,8 +52,13 @@ namespace KataTest.StringCalculator
         public void Should_Use_Semi_Colon_As_Separator()
         {
             var result = _calculator.Add("//;\n1;2");
-
             Assert.AreEqual(result, "3");
+        }
+
+        [Test]
+        public void Should_Throw_Exception_On_Negative_Number_Show_All_Negatives()
+        {
+            Assert.Throws<Exception>(() => _calculator.Add("1,2,4,-5,-4"));
         }
     }
 }
