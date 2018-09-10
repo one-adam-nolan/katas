@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Katas
+namespace Katas.Greeter
 {
     public class Greeter
     {
