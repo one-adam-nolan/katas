@@ -1,5 +1,5 @@
 using System;
-using Katas;
+using Katas.Greeter;
 using NUnit.Framework;
 
 namespace GreetingKataTests
@@ -52,14 +52,14 @@ namespace GreetingKataTests
             Assert.AreEqual($"Hello, {name1} and {name2}", result);
         }
 
-        [Test]
+
         public void Greeter_Should_Greet_Mixed_All_Caps_And_Normal_Results_First()
         {
             var name1 = "test1";
             var name2 = "test2";
             var name = "DANNY BOY";
 
-            var result =_greeter.Greet(name1, name2, name);
+            var result = _greeter.Greet(name1, name2, name);
 
             Assert.AreEqual($"Hello, {name1} and {name2}. HELLO {name}!", result);
         }
