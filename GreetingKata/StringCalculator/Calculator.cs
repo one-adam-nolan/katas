@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Katas.StringCalculator
 {
@@ -7,12 +8,25 @@ namespace Katas.StringCalculator
     {
         public string Add(string numbers)
         {
-            return SumAll(BreakOnCommas(numbers)).ToString();
+            return SumAll(Break(numbers)).ToString();
         }
 
-        private long GetNumberFromString(string number) => String.IsNullOrEmpty(number) ? 0 : int.Parse(number);
+        private long GetNumberFromString(string number) => int.TryParse(number, out var result) ? result : 0;
 
-        private string[] BreakOnCommas(string numbers) => numbers.Split(",");
+        private string[] Break(string numbers)
+        {
+            var defaultSplit = numbers.Split(';');
+            var filter = new List<string>();
+            foreach (var item in defaultSplit)
+            {
+                filter.AddRange(item.Split(',', '\n'));
+            }
+
+            return filter.ToArray();
+        }
+
+
+
 
         private long SumAll(string[] numbers)
         {

@@ -15,25 +15,37 @@ namespace KataTest.StringCalculator
         }
 
         [Test]
-        public void Calculator_Should_Return_Zero_With_No_Parameters()
+        public void Should_Return_Zero_With_No_Parameters()
         {
             var result = _calculator.Add("");
-
             Assert.AreEqual(result, "0");
         }
 
         [Test]
-        public void Calculator_Should_Return_Value_Of_Individual_Number()
+        public void Should_Return_Value_Of_Individual_Number()
         {
             var result = _calculator.Add("1");
             Assert.AreEqual(result, "1");
-
         }
 
         [Test]
-        public void Calculator_Should_Return_Sum_Of_Two_Numbers()
+        public void Should_Return_Sum_Of_Two_Numbers()
         {
             var result = _calculator.Add("1, 2");
+            Assert.AreEqual(result, "3");
+        }
+
+        [Test]
+        public void Should_Allow_Line_Breaks_For_Separator()
+        {
+            var result = _calculator.Add("1,2\n3");
+            Assert.AreEqual(result, "6");
+        }
+
+        [Test]
+        public void Should_Use_Semi_Colon_As_Separator()
+        {
+            var result = _calculator.Add("//;\n1;2");
 
             Assert.AreEqual(result, "3");
         }
