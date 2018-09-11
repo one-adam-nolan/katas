@@ -8,5 +8,6 @@
   <ItemGroup>
     <Folder Include="Greeter\" />
     <Folder Include="StringCalculator\" />
+    <Folder Include="RomanNumeral\" />
   </ItemGroup>
 </Project>
