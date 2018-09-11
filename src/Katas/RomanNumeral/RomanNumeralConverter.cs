@@ -13,7 +13,7 @@ namespace Katas.RomanNumeral
         {
             var numeralSet = PopulateSymbolsToList(BreakToChars(symbols));
 
-            numeralSet.ApplyOperators();
+            numeralSet.SetValues();
 
             return numeralSet.Compute();
         }
@@ -62,7 +62,7 @@ namespace Katas.RomanNumeral
             _value = value;
         }
 
-        public void FlipValue()
+        public void SetValueToNegative()
         {
             _value = _value * -1;
 
@@ -86,20 +86,25 @@ namespace Katas.RomanNumeral
             return _symbols.Select(n => n.Value).Sum();
         }
 
-        public void ApplyOperators()
+        public void SetValues()
         {
             for (int i = 0; i < _symbols.Count; ++i)
             {
                 if (i != _symbols.Count - 1)
                 {
                     var currentSymbol = _symbols[i];
-                    if (_symbols.Any(x => IsLessThanTarget(currentSymbol.Value, x.Value) && _symbols.IndexOf(x) > _symbols.IndexOf(currentSymbol)))
-                        currentSymbol.FlipValue();
+                    if (_symbols.Any(x => HasGreaterValueAndIndexThanCurrent(currentSymbol, x)))
+                        currentSymbol.SetValueToNegative();
                 }
             }
         }
 
-        private bool IsLessThanTarget(int current, int target) => current < target;
+        private bool HasGreaterValueAndIndexThanCurrent(RomanNumeral current, RomanNumeral target) =>
+            HasGreaterValueThanCurrent(current, target) && HasGreaterIndexThanCurrent(current, target);
+
+        private bool HasGreaterValueThanCurrent(RomanNumeral current, RomanNumeral target) => current.Value < target.Value;
+
+        private bool HasGreaterIndexThanCurrent(RomanNumeral current, RomanNumeral target) => _symbols.IndexOf(current) < _symbols.IndexOf(target);
 
     }
 }
