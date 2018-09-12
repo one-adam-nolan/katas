@@ -10,5 +10,6 @@
     <Folder Include="StringCalculator\" />
     <Folder Include="RomanNumeral\" />
     <Folder Include="FizzBuzz\" />
+    <Folder Include="Bowling\" />
   </ItemGroup>
 </Project>
