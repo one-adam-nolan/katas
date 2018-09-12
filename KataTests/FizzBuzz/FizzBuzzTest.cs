@@ -32,6 +32,8 @@ namespace KataTest.FizzBuzz
 
             Assert.IsTrue(isSorted);
             Assert.AreEqual(result, Enumerable.Range(1, 100).ToArray());
+            Assert.AreEqual(result.First(), 1);
+            Assert.AreEqual(result.Last(), 100);
         }
 
         [Test]
@@ -42,6 +44,26 @@ namespace KataTest.FizzBuzz
 
             Assert.IsFalse(result.Any(n => int.TryParse(n, out int i) && i % 3 == 0));
             Assert.IsFalse(result.Any(n => int.TryParse(n, out int i) && i % 5 == 0));
+        }
+
+        [Test]
+        [TestCase(1, "1")]
+        [TestCase(3, "fizz")]
+        [TestCase(5, "buzz")]
+        [TestCase(30, "fizzbuzz")]
+        public void Should_Return_Result_For_Individual_Number(int number, string expectedResult)
+        {
+            var result = _fizzBuzz.GetResultFor(number);
+
+            Assert.AreEqual(result, expectedResult);
+        }
+
+        [Test]
+        [TestCase(0)]
+        [TestCase(101)]
+        public void Should_Throw_Exception_For_Numbers_Above_Or_Below_One_Throw_One_Hundred(int number)
+        {
+            Assert.Throws<Exception>(() => _fizzBuzz.GetResultFor(number));
         }
     }
 }
