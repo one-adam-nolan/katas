@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katas", "GreetingKata\Katas.csproj", "{CA5A112C-2F33-477C-8CA1-031FABE2F2CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katas", "src\Katas\Katas.csproj", "{ABD27B9D-181F-4D49-84C9-53B17178D00E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataTest", "GreetingKataTests\KataTest.csproj", "{E9B4C6EE-8CE0-46B6-8E71-EE0ED84DB4C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataTest", "KataTests\KataTest.csproj", "{91A8B931-81D2-4404-9C75-DE2A2F74D2B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +11,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CA5A112C-2F33-477C-8CA1-031FABE2F2CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA5A112C-2F33-477C-8CA1-031FABE2F2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA5A112C-2F33-477C-8CA1-031FABE2F2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA5A112C-2F33-477C-8CA1-031FABE2F2CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9B4C6EE-8CE0-46B6-8E71-EE0ED84DB4C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9B4C6EE-8CE0-46B6-8E71-EE0ED84DB4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9B4C6EE-8CE0-46B6-8E71-EE0ED84DB4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9B4C6EE-8CE0-46B6-8E71-EE0ED84DB4C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD27B9D-181F-4D49-84C9-53B17178D00E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD27B9D-181F-4D49-84C9-53B17178D00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD27B9D-181F-4D49-84C9-53B17178D00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD27B9D-181F-4D49-84C9-53B17178D00E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A8B931-81D2-4404-9C75-DE2A2F74D2B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A8B931-81D2-4404-9C75-DE2A2F74D2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A8B931-81D2-4404-9C75-DE2A2F74D2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A8B931-81D2-4404-9C75-DE2A2F74D2B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
