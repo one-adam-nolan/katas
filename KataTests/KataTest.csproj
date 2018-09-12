@@ -17,6 +17,7 @@
     <Folder Include="Greeter\" />
     <Folder Include="StringCalculator\" />
     <Folder Include="RomanNumeral\" />
+    <Folder Include="FizzBuzz\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="StringCalculatorTests.cs" />
