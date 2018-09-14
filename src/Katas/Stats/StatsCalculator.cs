@@ -11,17 +11,17 @@ namespace Katas.Stats
         }
         public int MinNumber()
         {
-            return LoopNumbersFor((newNum, prevNum) => prevNum < newNum);
+            return LoopNumbersFor(Math.Min);
         }
 
         public int MaxNumber()
         {
-            throw new NotImplementedException();
+            return LoopNumbersFor(Math.Max);
         }
 
         public double Average()
         {
-            throw new NotImplementedException();
+            return CalculateAverage();
         }
 
         public int NumberOfElements()
@@ -29,12 +29,18 @@ namespace Katas.Stats
             return _numbers.Length;
         }
 
-        private int LoopNumbersFor(Func<int, int, bool> predicate)
+        private int LoopNumbersFor(Func<int, int, int> numberFunction, int? startNumber = null)
         {
-            var target = _numbers[0];
+            var target = startNumber ?? _numbers[0];
             for (var i = 0; i < _numbers.Length; ++i)
-                target = predicate(_numbers[i], target) ? target : _numbers[i];
+                target = numberFunction(target, _numbers[i]);
             return target;
         }
+
+        private double CalculateAverage() => SumAllNumbers() / _numbers.Length;
+
+        private double SumAllNumbers() => LoopNumbersFor(AddNumbers, 0);
+
+        private int AddNumbers(int x, int y) => x + y;
     }
 }
