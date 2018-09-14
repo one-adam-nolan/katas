@@ -38,6 +38,24 @@ namespace KataTest.Bowling
             Assert.AreEqual(16, _game.Score());
         }
 
+        [Test]
+        public void Should_Account_For_One_Strike()
+        {
+            _game.Roll(10);
+            _game.Roll(3);
+            _game.Roll(4);
+            RollMany(16, 0);
+            Assert.AreEqual(24, _game.Score());
+        }
+
+        [Test]
+        public void Should_Score_Perfect_Game()
+        {
+            RollMany(12, 10);
+            Assert.AreEqual(300, _game.Score());
+        }
+
+
         private void RollMany(int n, int pins)
         {
             for (int i = 0; i < n; ++i)
@@ -49,5 +67,11 @@ namespace KataTest.Bowling
             _game.Roll(5);
             _game.Roll(5);
         }
+
+        private void RollStrike()
+        {
+            _game.Roll(10);
+        }
+
     }
 }
